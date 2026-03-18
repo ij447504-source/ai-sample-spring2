@@ -1,3 +1,9 @@
+## 0. 중요규칙
+버전 : spring 4.0.3
+사용기술 : mustache, h2, jpa
+http메서드 : get, post만 사용하여 구현한다. *ApiController는 ajax가 필요할때만 사용한다.
+http요청방법 : form태그 사용. x-www-form-urlencoded
+
 ## 1. 자동 동기화 (최우선 실행)
 
 이 문서를 읽는 즉시 `.ai/skills/*/SKILL.md` 및 `.ai/agents/*/AGENT.md` 파일을 스캔하여 description을 반드시 읽어라.
@@ -22,3 +28,6 @@ echo '{"tool_name":"Skill","tool_input":{"skill":"<스킬명>"}}' | bash .ai/hoo
 
 ## 4. AI-CONTEXT
 코드 작업 전 해당 디렉토리에 `AI-CONTEXT.md`가 있으면 먼저 읽어라.
+
+## 5. 사용언어
+모든 작업은 한국어로 진행한다.
