@@ -1,0 +1,45 @@
+{{> layout/header}}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-sm" style="width: 100%; max-width: 500px; border-radius: var(--radius-base);">
+        <div class="card-header bg-white border-0 pt-4 pb-0 text-center">
+            <h3 class="fw-bold">회원 정보 수정</h3>
+        </div>
+        <div class="card-body p-4">
+            <form action="/user/update" method="post">
+                <div class="mb-3">
+                    <label class="form-label text-muted small">아이디</label>
+                    <input type="text" class="form-control bg-light" value="{{sessionUser.username}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="새 비밀번호를 입력하세요" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="form-label">이메일</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{sessionUser.email}}" required>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary py-2 fw-bold" style="border-radius: var(--radius-base);">수정완료</button>
+                </div>
+            </form>
+            
+            <hr class="my-4">
+            
+            <form action="/user/withdraw" method="post" onsubmit="return confirmWithdraw()">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-outline-danger py-2 fw-bold" style="border-radius: var(--radius-base);">회원탈퇴</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+function confirmWithdraw() {
+    return confirm("정말로 탈퇴하시겠습니까? 작성하신 모든 글과 댓글이 삭제될 수 있습니다.");
+}
+</script>
+
+{{> layout/footer}}

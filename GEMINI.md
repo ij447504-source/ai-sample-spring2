@@ -4,6 +4,10 @@
 사용기술 : mustache, h2, jpa, security 사용금지
 http메서드 : get, post만 사용하여 구현한다. \*ApiController는 ajax가 필요할때만 사용한다.
 http요청방법 : form태그 사용. x-www-form-urlencoded
+\*Service.java의 메서드명은 반드시 한글로 작성한다.
+model에 데이터를 담을 때 규칙(A, B 참고)
+A : model.addAttribute("model", 오브젝트);
+B : model.addAttribute("models", 컬렉션);
 
 ## 1. 자동 동기화 (최우선 실행)
 
@@ -37,3 +41,5 @@ echo '{"tool_name":"Skill","tool_input":{"skill":"<스킬명>"}}' | bash .ai/hoo
 ## 5. 사용언어
 
 모든 작업은 한국어로 진행한다.
+
+TODO에 하나라도 작업이 완료되면 [] 칸 안에 x 표시를 해줘. 이것은 완료했다는 의미야
