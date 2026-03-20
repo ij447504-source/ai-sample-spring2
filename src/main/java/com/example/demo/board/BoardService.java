@@ -17,8 +17,10 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
     private final BoardRepository boardRepository;
 
-    public List<BoardResponse.Min> 게시글목록보기() {
-        List<Board> boards = boardRepository.findAll();
+    public List<BoardResponse.Min> 게시글목록보기(int page) {
+        int limit = 3; // 한 페이지에 보여줄 개수
+        int offset = page * limit; // 시작인덱스
+        List<Board> boards = boardRepository.mFindAll(limit, offset);
         return boards.stream()
                 .map(BoardResponse.Min::new)
                 .collect(Collectors.toList());

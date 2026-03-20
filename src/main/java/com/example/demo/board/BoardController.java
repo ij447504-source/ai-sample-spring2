@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -17,8 +18,8 @@ public class BoardController {
     private final HttpSession session;
 
     @GetMapping({"/", "/board/list"})
-    public String home(HttpServletRequest request) {
-        List<BoardResponse.Min> boardList = boardService.게시글목록보기();
+    public String home(@RequestParam(name = "page", defaultValue = "0") int page, HttpServletRequest request) {
+        List<BoardResponse.Min> boardList = boardService.게시글목록보기(page);
         request.setAttribute("boardList", boardList);
         return "board/list";
     }
